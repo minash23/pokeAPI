@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             input = user_input.getText().toString().toLowerCase().trim();
-            if(isAlpha(input) && input.length() > 0){
+            boolean hi = isAlpha(input);
+            if(hi && input.length() > 0){
                 Log.d("input", input);
                 user_input.setText("");
                 makeRequest(input);
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean isAlpha(String name) {
         char[] chars = name.toCharArray();
         for (char c : chars) {
-            if(!Character.isLetter(c) || c != '.') {
+            if(!Character.isLetter(c) && c != '.') {
                 return false;
             }
         }
